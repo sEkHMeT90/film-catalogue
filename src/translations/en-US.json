@@ -1,0 +1,18 @@
+{
+  "welcome": "Welcome",
+  "common": {
+    "titleApp": "Film Catalogue"
+  },
+  "filmsList": {
+    "title": "Films List"
+  },
+  "filmDetails": {
+    "title": "Film Details"
+  },
+  "myList": {
+    "logout": "My list"
+  },
+  "error": {
+    "title": "An error has been occurred..."
+  }
+}

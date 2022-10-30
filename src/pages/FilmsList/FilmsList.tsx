@@ -1,7 +1,12 @@
 import React from "react";
+import { FormattedMessage } from "react-intl";
 
 const FilmDetails: React.FC = () => {
-  return <p>Film Details PAGE</p>;
+  return (
+    <p>
+      <FormattedMessage id='filmList.title' />
+    </p>
+  );
 };
 
 export default FilmDetails;
