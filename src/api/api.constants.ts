@@ -1,5 +1,8 @@
 const API_KEY = "8f781d70654b5a6f2fa69770d1d115a3";
-export const API_BASE_URL = "https://api.themoviedb.org/3";
+export const BASE_URL = "https://api.themoviedb.org";
+export const API_BASE_URL = `${BASE_URL}/3`;
+export const IMAGE_PATH = "https://image.tmdb.org/t/p/w500";
+export const IMAGE_FULL_PATH = "https://image.tmdb.org/t/p/original";
 
 export const commonParams = {
   api_key: API_KEY,
