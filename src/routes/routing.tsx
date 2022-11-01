@@ -2,8 +2,8 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { ROUTES } from "./routes";
 
-import FilmsList from "../pages/FilmDetails/FilmDetails";
-import FilmDetails from "../pages/FilmsList/FilmsList";
+import FilmsList from "../pages/FilmsList/FilmsList";
+import FilmDetails from "../pages/FilmDetails/FilmDetails";
 import MyList from "../pages/MyList/MyList";
 
 const Routing = () => {

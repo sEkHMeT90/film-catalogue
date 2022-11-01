@@ -1,7 +1,7 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 
-const FilmsList: React.FC = () => {
+const FilmDetails: React.FC = () => {
   return (
     <p>
       <FormattedMessage id='filmDetails.title' />
@@ -9,4 +9,4 @@ const FilmsList: React.FC = () => {
   );
 };
 
-export default FilmsList;
+export default FilmDetails;
