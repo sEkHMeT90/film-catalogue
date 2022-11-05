@@ -2,34 +2,78 @@ import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { commonParams, API_PATHS, API_METHODS } from "../../api/api.constants";
 import apiCall from "../../api/api";
-import { getPopularMoviesParams } from "../../models/apiParams";
+import {
+  getPopularMoviesParams,
+  searchMovieParams,
+} from "../../models/apiParams";
 import { FormattedMessage } from "react-intl";
-import { Container } from "@mui/material";
+import { Container, Box, CircularProgress } from "@mui/material";
 import FilmsContainer from "../../components/FilmsContainer/FilmsContainer";
+import Search from "../../components/Search/Search";
 
 const FilmsList: React.FC = () => {
   const [page, setPage] = useState<number>(1);
-  const params: getPopularMoviesParams = { ...commonParams, page: page };
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
-  const { data, isError, isLoading } = useQuery(["movies", params], () =>
-    apiCall(API_METHODS.GET, API_PATHS.GET_POPULAR_MOVIES, params)
-  );
+  const getFilmsParams: getPopularMoviesParams = {
+    ...commonParams,
+    page: page,
+  };
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-  if (isError) {
+  const getSearchParams: searchMovieParams = {
+    ...commonParams,
+    page: page,
+    query: searchQuery,
+  };
+
+  const dataFilms = useQuery({
+    queryKey: ["movies", getFilmsParams],
+    queryFn: () =>
+      apiCall(API_METHODS.GET, API_PATHS.GET_POPULAR_MOVIES, getFilmsParams),
+    enabled: searchQuery == "",
+  });
+
+  const dataSearch = useQuery({
+    queryKey: ["searchMovies", getSearchParams],
+    queryFn: () =>
+      apiCall(API_METHODS.GET, API_PATHS.SEARCH_MOVIES, getSearchParams),
+    enabled: searchQuery != "",
+  });
+
+  //TODO: Resetear paginación tras cada búsqueda y al eliminar el searchQuery
+
+  const isLoading = () => {
+    return (
+      (dataFilms.fetchStatus != "idle" && dataFilms.isLoading) ||
+      (dataSearch.fetchStatus != "idle" && dataSearch.isLoading)
+    );
+  };
+
+  if (dataFilms.isError || dataFilms.isError) {
+    //TODO: Mejorar mensaje de error
     return <div>Error!</div>;
   }
 
   return (
     <Container maxWidth='lg'>
-      <FormattedMessage id='filmsList.title' />
-      <FilmsContainer
-        data={data}
-        page={page}
-        setPage={setPage}
-      ></FilmsContainer>
+      <Box
+        sx={{ p: 5 }}
+        justifyContent={"center"}
+        alignItems='center'
+        display={"flex"}
+      >
+        <FormattedMessage id='filmsList.title' />
+      </Box>
+      <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      {isLoading() ? (
+        <CircularProgress />
+      ) : (
+        <FilmsContainer
+          data={dataSearch.data || dataFilms.data}
+          page={page}
+          setPage={setPage}
+        ></FilmsContainer>
+      )}
     </Container>
   );
 };
