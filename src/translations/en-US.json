@@ -4,7 +4,7 @@
     "titleApp": "Film Catalogue"
   },
   "filmsList": {
-    "title": "Films List",
+    "title": "Popular films",
     "search": "Film search",
     "enterFilmSearch": "Enter a film to search"
   },
@@ -15,6 +15,7 @@
     "title": "My list"
   },
   "error": {
-    "title": "An error has been occurred..."
+    "genericError": "An error has been occurred...",
+    "dataNotFounded": "No data available..."
   }
 }

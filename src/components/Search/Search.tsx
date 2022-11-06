@@ -11,8 +11,8 @@ const Search = ({ searchQuery, setSearchQuery }: Props) => {
   const { formatMessage } = useIntl();
   return (
     <Box
-      sx={{ p: 5 }}
-      justifyContent={"center"}
+      sx={{ pb: 3 }}
+      justifyContent={"right"}
       alignItems='center'
       display={"flex"}
     >
@@ -33,6 +33,7 @@ const Search = ({ searchQuery, setSearchQuery }: Props) => {
             id: "filmsList.enterFilmSearch",
           })}
           size='small'
+          color='primary'
         />
       </form>
     </Box>

@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Translations from "./components/Translations/Translations";
 import Header from "./components/Header/Header";
 import Routing from "./routes/routing";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "./theme/theme";
 
 const queryClient = new QueryClient();
 
@@ -15,8 +17,10 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <Translations>
         <BrowserRouter>
-          <Header />
-          <Routing />
+          <ThemeProvider theme={theme}>
+            <Header />
+            <Routing />
+          </ThemeProvider>
         </BrowserRouter>
       </Translations>
       <ReactQueryDevtools initialIsOpen={false} />

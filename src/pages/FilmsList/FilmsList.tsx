@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { FormattedMessage } from "react-intl";
-import { Container, Box, CircularProgress } from "@mui/material";
+import { Container, Box, CircularProgress, Typography } from "@mui/material";
 import FilmsContainer from "../../components/FilmsContainer/FilmsContainer";
 import Search from "../../components/Search/Search";
 import useSearchMovies from "../../hooks/apiCalls/useSearchMovies";
 import useGetPopularMovies from "../../hooks/apiCalls/useGetPopularMovies";
+import { useIntl } from "react-intl";
 
 const FilmsList: React.FC = () => {
+  const { formatMessage } = useIntl();
+
   const [page, setPage] = useState<number>(1);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
@@ -14,6 +16,7 @@ const FilmsList: React.FC = () => {
   const dataSearch = useSearchMovies({ page, searchQuery });
 
   //TODO: Resetear paginación tras cada búsqueda y al eliminar el searchQuery
+  //TODO: Extraer lógica
 
   const isLoading = () => {
     return (
@@ -22,31 +25,80 @@ const FilmsList: React.FC = () => {
     );
   };
 
-  if (dataFilms.isError || dataFilms.isError) {
-    //TODO: Mejorar mensaje de error
-    return <div>Error!</div>;
-  }
+  const isError = () => {
+    return dataFilms.isError || dataFilms.isError;
+  };
 
+  const isEmptyData = () => {
+    return (
+      (searchQuery != "" && dataSearch.data.total_results === 0) ||
+      dataFilms.data.total_results === 0
+    );
+  };
+
+  // TODO: Extraer loading, error y noDataMsg a componentes
+  const renderMainContent = () => {
+    if (isLoading())
+      return (
+        <Box justifyContent={"center"} alignItems='center' display={"flex"}>
+          <CircularProgress />
+        </Box>
+      );
+    if (isError())
+      return (
+        <Typography align='center'>
+          {formatMessage({
+            id: "error.genericError",
+          })}
+        </Typography>
+      );
+    if (isEmptyData())
+      return (
+        <Typography align='center'>
+          {formatMessage({
+            id: "error.dataNotFounded",
+          })}
+        </Typography>
+      );
+
+    return (
+      <FilmsContainer
+        data={dataSearch.data || dataFilms.data}
+        page={page}
+        setPage={setPage}
+      ></FilmsContainer>
+    );
+  };
+
+  //TODO: Extraer título a componente
   return (
     <Container maxWidth='xl'>
       <Box
-        sx={{ p: 5 }}
+        sx={{ p: 3 }}
         justifyContent={"center"}
         alignItems='center'
         display={"flex"}
       >
-        <FormattedMessage id='filmsList.title' />
+        <Typography
+          variant='h2'
+          noWrap
+          sx={{
+            mr: 2,
+            display: { xs: "none", md: "flex" },
+            fontFamily: "monospace",
+            fontWeight: 700,
+            letterSpacing: ".3rem",
+            color: "primary.main",
+            textDecoration: "none",
+          }}
+        >
+          {formatMessage({
+            id: "filmsList.title",
+          })}
+        </Typography>
       </Box>
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      {isLoading() ? (
-        <CircularProgress />
-      ) : (
-        <FilmsContainer
-          data={dataSearch.data || dataFilms.data}
-          page={page}
-          setPage={setPage}
-        ></FilmsContainer>
-      )}
+      {renderMainContent()}
     </Container>
   );
 };

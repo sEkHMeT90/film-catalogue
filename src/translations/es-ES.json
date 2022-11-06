@@ -4,7 +4,7 @@
     "titleApp": "Catálogo de películas"
   },
   "filmsList": {
-    "title": "Lista de películas",
+    "title": "Películas populares",
     "search": "Buscar película",
     "enterFilmSearch": "Introduzca una película a buscar"
   },
@@ -15,6 +15,7 @@
     "title": "Mi lista"
   },
   "error": {
-    "title": "Ha ocurrido un error..."
+    "genericError": "Ha ocurrido un error...",
+    "dataNotFounded": "No hay datos disponibles..."
   }
 }

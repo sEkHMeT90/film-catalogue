@@ -33,6 +33,7 @@ const FilmsContainer = ({ data, page, setPage }: Props) => {
               justifyContent='center'
               alignItems='center'
               m='3px'
+              paddingTop='5px'
               sx={{
                 width: "100%",
                 borderStyle: "solid",
@@ -40,7 +41,7 @@ const FilmsContainer = ({ data, page, setPage }: Props) => {
                 borderRadius: "10px",
                 backgroundColor: "primary.light",
                 "&:hover": {
-                  backgroundColor: "primary.main",
+                  backgroundColor: "secondary.main",
                   opacity: [0.9, 0.8, 0.7],
                 },
               }}
