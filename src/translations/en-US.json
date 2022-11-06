@@ -4,7 +4,9 @@
     "titleApp": "Film Catalogue"
   },
   "filmsList": {
-    "title": "Films List"
+    "title": "Films List",
+    "search": "Film search",
+    "enterFilmSearch": "Enter a film to search"
   },
   "filmDetails": {
     "title": "Film Details"

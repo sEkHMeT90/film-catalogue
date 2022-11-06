@@ -4,7 +4,9 @@
     "titleApp": "Catálogo de películas"
   },
   "filmsList": {
-    "title": "Lista de películas"
+    "title": "Lista de películas",
+    "search": "Buscar película",
+    "enterFilmSearch": "Introduzca una película a buscar"
   },
   "filmDetails": {
     "title": "Detalle de la película"
