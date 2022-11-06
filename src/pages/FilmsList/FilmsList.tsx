@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { Container, Box, CircularProgress, Typography } from "@mui/material";
+import { Container } from "@mui/material";
 import FilmsContainer from "../../components/FilmsContainer/FilmsContainer";
 import Search from "../../components/Search/Search";
 import useSearchMovies from "../../hooks/apiCalls/useSearchMovies";
 import useGetPopularMovies from "../../hooks/apiCalls/useGetPopularMovies";
 import { useIntl } from "react-intl";
+import Title from "../../components/Title/Title";
+import GenericMessage from "../../components/GenericMessage/GenericMessage";
+import Spinner from "../../components/Spinner/Spinner";
 
 const FilmsList: React.FC = () => {
-  const { formatMessage } = useIntl();
-
   const [page, setPage] = useState<number>(1);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
@@ -36,30 +37,11 @@ const FilmsList: React.FC = () => {
     );
   };
 
-  // TODO: Extraer loading, error y noDataMsg a componentes
+  //TODO: Extraer renderMainContent a un componente reutilizable
   const renderMainContent = () => {
-    if (isLoading())
-      return (
-        <Box justifyContent={"center"} alignItems='center' display={"flex"}>
-          <CircularProgress />
-        </Box>
-      );
-    if (isError())
-      return (
-        <Typography align='center'>
-          {formatMessage({
-            id: "error.genericError",
-          })}
-        </Typography>
-      );
-    if (isEmptyData())
-      return (
-        <Typography align='center'>
-          {formatMessage({
-            id: "error.dataNotFounded",
-          })}
-        </Typography>
-      );
+    if (isLoading()) return <Spinner />;
+    if (isError()) return <GenericMessage msg='error.genericError' />;
+    if (isEmptyData()) return <GenericMessage msg='error.dataNotFounded' />;
 
     return (
       <FilmsContainer
@@ -70,33 +52,9 @@ const FilmsList: React.FC = () => {
     );
   };
 
-  //TODO: Extraer título a componente
   return (
     <Container maxWidth='xl'>
-      <Box
-        sx={{ p: 3 }}
-        justifyContent={"center"}
-        alignItems='center'
-        display={"flex"}
-      >
-        <Typography
-          variant='h2'
-          noWrap
-          sx={{
-            mr: 2,
-            display: { xs: "none", md: "flex" },
-            fontFamily: "monospace",
-            fontWeight: 700,
-            letterSpacing: ".3rem",
-            color: "primary.main",
-            textDecoration: "none",
-          }}
-        >
-          {formatMessage({
-            id: "filmsList.title",
-          })}
-        </Typography>
-      </Box>
+      <Title title='filmsList.title' />
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       {renderMainContent()}
     </Container>
