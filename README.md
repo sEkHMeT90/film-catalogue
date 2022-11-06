@@ -71,3 +71,4 @@ To set up the application in your local machine follow this steps:
 - Improve the construction of the URLs RATE_MOVIE and GET_RATED_MOVIES
 - Improve styles
 - Export views logic
+- Improve the error management globalizing it and displaying alerts with the state

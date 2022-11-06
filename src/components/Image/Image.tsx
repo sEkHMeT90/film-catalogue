@@ -7,7 +7,6 @@ type Props = {
   onClick?: () => void;
 };
 
-//TODO: Revisar any
 const Image = ({ src, title, onClick }: Props) => {
   const image = useRef(null);
   const [valid, setValid] = useState(true);

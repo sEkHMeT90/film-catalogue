@@ -7,6 +7,7 @@ type Props = {
   filmId: string;
 };
 
+//TODO: Mostrar mensaje informativo al usuario al hacer la votación (success/error)
 const RateFilm = ({ sessionId, filmId }: Props) => {
   const setRating = (e: React.SyntheticEvent<Element, Event>) => {
     const target = e.target as HTMLTextAreaElement;
@@ -16,9 +17,10 @@ const RateFilm = ({ sessionId, filmId }: Props) => {
       value: +target.value,
     });
   };
+  const ratingName = `rating-${filmId}`;
   return (
     <Rating
-      name='customized-10'
+      name={ratingName}
       max={10}
       precision={0.5}
       onChange={(e) => setRating(e)}
