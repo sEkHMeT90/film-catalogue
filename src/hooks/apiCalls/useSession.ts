@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import apiCall from "../api/api";
-import { API_METHODS, API_PATHS, commonParams } from "../api/api.constants";
+import apiCall from "../../api/api";
+import { API_METHODS, API_PATHS, commonParams } from "../../api/api.constants";
 
 const useSession = () => {
   return useQuery(["session", commonParams], () =>

@@ -9,6 +9,7 @@ import Routing from "./routes/routing";
 
 const queryClient = new QueryClient();
 
+//TODO: Dar repaso a tipos any
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>

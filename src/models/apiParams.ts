@@ -29,3 +29,9 @@ export type rateMovieBody = {
 export type createNewSessionParams = {
   api_key: string;
 };
+
+export type getRatedMoviesParams = {
+  api_key: string;
+  language?: string;
+  sort_by?: string;
+};

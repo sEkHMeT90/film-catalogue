@@ -10,7 +10,7 @@
     "title": "Detalle de la película"
   },
   "myList": {
-    "logout": "Mi lista"
+    "title": "Mi lista"
   },
   "error": {
     "title": "Ha ocurrido un error..."
