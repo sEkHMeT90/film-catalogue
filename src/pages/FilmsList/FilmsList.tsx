@@ -56,7 +56,7 @@ const FilmsList: React.FC = () => {
   }
 
   return (
-    <Container maxWidth='lg'>
+    <Container maxWidth='xl'>
       <Box
         sx={{ p: 5 }}
         justifyContent={"center"}

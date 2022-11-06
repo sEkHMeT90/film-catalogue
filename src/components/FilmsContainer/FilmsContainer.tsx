@@ -17,7 +17,6 @@ const FilmsContainer = ({ data, page, setPage }: Props) => {
     <>
       <Grid
         container
-        rowSpacing={3}
         justifyContent='center'
         columns={{ xs: 4, sm: 5, md: 8, lg: 10 }}
       >
@@ -30,8 +29,21 @@ const FilmsContainer = ({ data, page, setPage }: Props) => {
               md={2}
               lg={2}
               display='flex'
+              flexDirection='column'
               justifyContent='center'
-              flexDirection={"column"}
+              alignItems='center'
+              m='3px'
+              sx={{
+                width: "100%",
+                borderStyle: "solid",
+                borderColor: "primary.dark",
+                borderRadius: "10px",
+                backgroundColor: "primary.light",
+                "&:hover": {
+                  backgroundColor: "primary.main",
+                  opacity: [0.9, 0.8, 0.7],
+                },
+              }}
               key={index}
             >
               <Film data={movie} />
