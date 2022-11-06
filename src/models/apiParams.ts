@@ -22,6 +22,10 @@ export type rateMovieParams = {
   session_id?: boolean;
 };
 
+export type rateMovieBody = {
+  value: number;
+};
+
 export type createNewSessionParams = {
   api_key: string;
 };

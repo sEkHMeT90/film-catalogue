@@ -34,7 +34,7 @@ const FilmsContainer = ({ data, page, setPage }: Props) => {
               flexDirection={"column"}
               key={index}
             >
-              <Film film={index} data={movie} />
+              <Film data={movie} />
             </Grid>
           );
         })}

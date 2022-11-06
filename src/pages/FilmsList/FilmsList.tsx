@@ -15,6 +15,7 @@ const FilmsList: React.FC = () => {
   const [page, setPage] = useState<number>(1);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
+  //TODO: Extraer funcionalidad a hook
   const getFilmsParams: getPopularMoviesParams = {
     ...commonParams,
     page: page,
