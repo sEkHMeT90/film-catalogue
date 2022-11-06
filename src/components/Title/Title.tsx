@@ -1,13 +1,14 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
-import { useIntl } from "react-intl";
+import { Box } from "@mui/material";
+import TitleDesktop from "./TitleDesktop";
+import TitleMobile from "./TitleMobile";
 
 type Props = {
-  title: string;
+  title?: string;
+  titleTag?: string;
 };
 
-const Title = ({ title }: Props) => {
-  const { formatMessage } = useIntl();
+const Title = (props: Props) => {
   return (
     <Box
       sx={{ p: 3 }}
@@ -15,23 +16,8 @@ const Title = ({ title }: Props) => {
       alignItems='center'
       display={"flex"}
     >
-      <Typography
-        variant='h2'
-        noWrap
-        sx={{
-          mr: 2,
-          display: { xs: "none", md: "flex" },
-          fontFamily: "monospace",
-          fontWeight: 700,
-          letterSpacing: ".3rem",
-          color: "primary.main",
-          textDecoration: "none",
-        }}
-      >
-        {formatMessage({
-          id: title,
-        })}
-      </Typography>
+      <TitleDesktop {...props} />
+      <TitleMobile {...props} />
     </Box>
   );
 };

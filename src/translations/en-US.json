@@ -9,13 +9,22 @@
     "enterFilmSearch": "Enter a film to search"
   },
   "filmDetails": {
-    "title": "Film Details"
+    "title": "Film Details",
+    "adult": "Adults",
+    "original_language": "Original language",
+    "id": "Identificator",
+    "original_title": "Original title",
+    "overview": "Overview",
+    "popularity": "Popularity",
+    "release_date": "Release date",
+    "vote_average": "Vote average",
+    "vote_count": "Vote count"
   },
   "myList": {
     "title": "My list"
   },
   "error": {
-    "genericError": "An error has been occurred...",
-    "dataNotFounded": "No data available..."
+    "genericError": "An error has been occurred.",
+    "dataNotFounded": "No data available."
   }
 }

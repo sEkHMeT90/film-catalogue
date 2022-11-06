@@ -4,7 +4,7 @@ import createApi from "./api-config";
 const apiCall = async (
   customMethod: string,
   url: string,
-  params?: any,
+  params?: object,
   body?: rateMovieBody
 ) => {
   const api = createApi(customMethod);

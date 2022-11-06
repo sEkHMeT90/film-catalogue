@@ -11,7 +11,6 @@ import { theme } from "./theme/theme";
 
 const queryClient = new QueryClient();
 
-//TODO: Dar repaso a tipos any
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>

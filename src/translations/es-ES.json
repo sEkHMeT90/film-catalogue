@@ -9,13 +9,22 @@
     "enterFilmSearch": "Introduzca una película a buscar"
   },
   "filmDetails": {
-    "title": "Detalle de la película"
+    "title": "Detalle de la película",
+    "adult": "Adultos",
+    "original_language": "Idioma original",
+    "id": "Identificador",
+    "original_title": "Título original",
+    "overview": "Sinopsis",
+    "popularity": "Popularidad",
+    "release_date": "Fecha de lanzamiento",
+    "vote_average": "Votación media",
+    "vote_count": "Total de votos"
   },
   "myList": {
     "title": "Mi lista"
   },
   "error": {
-    "genericError": "Ha ocurrido un error...",
-    "dataNotFounded": "No hay datos disponibles..."
+    "genericError": "Ha ocurrido un error.",
+    "dataNotFounded": "No hay datos disponibles."
   }
 }

@@ -12,6 +12,7 @@ type Props = {
   setPage: (page: number) => void;
 };
 
+//TODO: Extraer estilos para que quede un código menos invasivo
 const FilmsContainer = ({ data, page, setPage }: Props) => {
   return (
     <>
