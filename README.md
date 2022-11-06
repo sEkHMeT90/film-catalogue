@@ -23,7 +23,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - [**Prerequisites**](#prerequisites)
   - [**Installation**](#installation)
   - [**Start the App**](#start-the-app)
-  - [**Functionalities developed**](#functionalities-developed)
+  - [:heavy_check_mark: **Functionalities developed** 	:heavy_check_mark:](#heavy_check_mark-functionalities-developed-heavy_check_mark)
+  - [:x: **Functionalities pending** :x:](#x-functionalities-pending-x)
 
 ## **Introduction**
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and is using the following technologies:
@@ -57,4 +58,16 @@ To set up the application in your local machine follow this steps:
 - Run `npm start` o `yarn start`
 - Open [http://localhost:3000](http://localhost:3000) in your browser.
   
-## **Functionalities developed**
+## 	:heavy_check_mark: **Functionalities developed** 	:heavy_check_mark:
+- **Popular films list**: Main page with the list of the most popular films, with pagination and a search box to find some specific film. Doing click over any film picture the user must be redirected to `Film details` page.
+- **Film details page**: This page displays all the info about a selected film. Also the user can rate the film.
+- **My list**: At this page the user can see a list of the films that he rated in this session. The funtionallity of the list is the same that has the main page.
+
+## :x: **Functionalities pending** :x:
+- Parse dates depending of the language.
+- Reset the pagination page.
+- Explore why the getRatedMovies call didnt return any result.
+- Make test
+- Improve the construction of the URLs RATE_MOVIE and GET_RATED_MOVIES
+- Improve styles
+- Export views logic
