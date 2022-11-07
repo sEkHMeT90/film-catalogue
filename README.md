@@ -63,6 +63,8 @@ To set up the application in your local machine follow this steps:
 - **Film details page**: This page displays all the info about a selected film. Also the user can rate the film.
 - **My list**: At this page the user can see a list of the films that he rated in this session. The funtionallity of the list is the same that has the main page.
 
+- Translation system based on the browser language.
+
 ## :x: **Functionalities pending** :x:
 - Parse dates depending of the language.
 - Reset the pagination page.
@@ -72,3 +74,4 @@ To set up the application in your local machine follow this steps:
 - Improve styles
 - Export views logic
 - Improve the error management globalizing it and displaying alerts with the state
+- Pre-commit y pre-push con husky
